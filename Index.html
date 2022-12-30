@@ -42,34 +42,7 @@
                 <label for="message">Message:  <textarea id="message" name="message"></textarea></label>
                 <input type="submit" value="Submit">
             </form>
-            <?php
 
-            // Connect to the database
-            $dsn = "Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=C:\\users\Charlie Gregory\OneDrive - Isle of Man Department of Education, Sport and Culture/Desktop/Vendo/Website/Database.accdb;";
-            $conn = odbc_connect($dsn, "", "");
-
-            if (!$conn) {
-            die("Connection failed: " . odbc_errormsg($conn));
-            }
-
-            // Escape user inputs for security
-            $name = odbc_escape_string($conn, $_POST['name']);
-            $email = odbc_escape_string($conn, $_POST['email']);
-            $message = odbc_escape_string($conn, $_POST['message']);
-
-            // Attempt insert query execution
-            $sql = "INSERT INTO Form_Results (name, email, message) VALUES ('$name', '$email', '$message')";
-
-            if (mysqli_query($conn, $sql)) {
-            echo "Records added successfully.";
-            } else {
-            echo "ERROR: Could not execute $sql. " . mysqli_error($conn);
-            }
-
-            // Close connection
-            mysqli_close($conn);
-
-            ?>
         </section>
     </main>
     <footer>
