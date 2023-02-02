@@ -80,6 +80,7 @@ label, input {
     font-size: 1em;
     background-color: #000000;
     color: #fff;
+    font-color: #fff
 }
 
 textarea {
